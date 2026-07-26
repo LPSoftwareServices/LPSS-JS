@@ -30,7 +30,7 @@ const HiringProcess = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Hire Pre-Vetted Engineers
             <br />
-            <span className="text-brand-coral">In 3 Easy Steps</span>
+            <span className="text-brand-coral">In 3 Easy Steps 1</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Simple, fast, and efficient process to get the right talent for your projects
