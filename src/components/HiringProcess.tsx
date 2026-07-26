@@ -49,7 +49,7 @@ const HiringProcess = () => {
                 />
                 <div>
                   <h3 className="font-bold text-gray-900">Rajesh Kumar</h3>
-                  <p className="text-gray-600">Senior SAP Developer</p>
+                  <p className="text-gray-600">Senior SAP Developer111</p>
                   <div className="flex items-center mt-1">
                     <div className="flex text-yellow-400">
                       ★★★★★
