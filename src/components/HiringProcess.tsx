@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { Search, Users, Rocket, Code2 } from "lucide-react";
+
+import { CheckCircle, Search, Users, Rocket } from "lucide-react";
 
 const HiringProcess = () => {
-  const [active, setActive] = useState(0);
   const steps = [
     {
       icon: <Search className="w-8 h-8 text-white" />,
@@ -24,43 +23,6 @@ const HiringProcess = () => {
     }
   ];
 
-  const engineers = [
-    {
-      name: "Rajesh K.",
-      role: "Senior SAP Developer",
-      rating: "5.0",
-      reviews: 127,
-      skills: ["SAP ABAP", "Fiori", "HANA"],
-      experience: "8+ years in SAP development and implementation",
-      gradient: "from-brand-purple to-brand-coral",
-    },
-    {
-      name: "Priya S.",
-      role: "Full-Stack Engineer",
-      rating: "4.9",
-      reviews: 98,
-      skills: ["React", "Node.js", "AWS"],
-      experience: "6+ years building scalable web platforms",
-      gradient: "from-brand-coral to-brand-purple",
-    },
-    {
-      name: "Arjun M.",
-      role: "Data & AI Engineer",
-      rating: "5.0",
-      reviews: 84,
-      skills: ["Python", "ML Ops", "Snowflake"],
-      experience: "7+ years in data engineering and AI systems",
-      gradient: "from-brand-purple to-purple-400",
-    },
-  ];
-
-  const getInitials = (name: string) =>
-    name
-      .split(" ")
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase();
-
   return (
     <section className="py-20 bg-brand-light-purple">
       <div className="container mx-auto px-4 lg:px-8">
@@ -76,88 +38,42 @@ const HiringProcess = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Engineer Profile Cards (click to switch) */}
-          <div className="relative max-w-md mx-auto w-full">
-            <div className="relative h-[380px]">
-              {engineers.map((eng, i) => {
-                const offset = i - active;
-                const isActive = i === active;
-                return (
-                  <button
-                    type="button"
-                    key={eng.name}
-                    onClick={() => setActive(i)}
-                    aria-label={`View ${eng.name}`}
-                    aria-pressed={isActive}
-                    className="absolute inset-x-0 text-left bg-white rounded-2xl shadow-2xl p-6 border border-gray-100 transition-all duration-500 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple"
-                    style={{
-                      top: `${Math.abs(offset) * 18}px`,
-                      transform: `translateX(${offset * 14}px) rotate(${offset * 3}deg) scale(${isActive ? 1 : 0.95})`,
-                      zIndex: engineers.length - Math.abs(offset),
-                      opacity: isActive ? 1 : 0.55,
-                      pointerEvents: isActive ? "auto" : "auto",
-                      cursor: isActive ? "default" : "pointer",
-                    }}
-                  >
-                    <div className="flex items-center mb-5">
-                      <div
-                        className={`w-16 h-16 rounded-full mr-4 bg-gradient-to-br ${eng.gradient} flex items-center justify-center text-white font-bold text-lg shadow-md relative`}
-                        aria-hidden="true"
-                      >
-                        {getInitials(eng.name)}
-                        <span className="absolute -bottom-1 -right-1 bg-white rounded-full p-1 shadow">
-                          <Code2 className="w-3 h-3 text-brand-purple" />
-                        </span>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-gray-900">{eng.name}</h3>
-                        <p className="text-gray-600 text-sm">{eng.role}</p>
-                        <div className="flex items-center mt-1">
-                          <div className="flex text-yellow-400 text-sm">★★★★★</div>
-                          <span className="text-xs text-gray-500 ml-2">
-                            {eng.rating} ({eng.reviews} reviews)
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2 text-sm">Skills</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {eng.skills.map((s) => (
-                            <span
-                              key={s}
-                              className="bg-brand-light-purple text-brand-purple px-3 py-1 rounded-full text-xs font-medium"
-                            >
-                              {s}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-1 text-sm">Experience</h4>
-                        <p className="text-gray-600 text-sm">{eng.experience}</p>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Dots */}
-            <div className="flex justify-center gap-2 mt-6">
-              {engineers.map((eng, i) => (
-                <button
-                  key={eng.name}
-                  type="button"
-                  onClick={() => setActive(i)}
-                  aria-label={`Show ${eng.name}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    i === active ? "w-8 bg-brand-purple" : "w-2.5 bg-gray-300 hover:bg-gray-400"
-                  }`}
+          {/* Left side - Developer Profile Card */}
+          <div className="relative">
+            <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md mx-auto">
+              <div className="flex items-center mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                  alt="Developer" 
+                  className="w-16 h-16 rounded-full object-cover mr-4"
                 />
-              ))}
+                <div>
+                  <h3 className="font-bold text-gray-900">Rajesh Kumar</h3>
+                  <p className="text-gray-600">Senior SAP Developer</p>
+                  <div className="flex items-center mt-1">
+                    <div className="flex text-yellow-400">
+                      ★★★★★
+                    </div>
+                    <span className="text-sm text-gray-500 ml-2">5.0 (127 reviews)</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Skills</h4>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="bg-brand-light-purple text-brand-purple px-3 py-1 rounded-full text-sm">SAP ABAP</span>
+                    <span className="bg-brand-light-purple text-brand-purple px-3 py-1 rounded-full text-sm">Fiori</span>
+                    <span className="bg-brand-light-purple text-brand-purple px-3 py-1 rounded-full text-sm">HANA</span>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">Experience</h4>
+                  <p className="text-gray-600 text-sm">8+ years in SAP development and implementation</p>
+                </div>
+              </div>
             </div>
           </div>
 
